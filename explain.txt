@@ -1,0 +1,3 @@
+Meaning words:
+- babel : like a compiler will transpile any code version of Javascript
+Link to setup babel: https://medium.com/@agavitalis/setting-up-a-nodejs-express-application-with-babel-642fe0dd45a5
