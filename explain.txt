@@ -1,3 +1,8 @@
 Meaning words:
-- babel : like a compiler will transpile any code version of Javascript
+- babel: like a compiler will transpile any code version of Javascript
 Link to setup babel: https://medium.com/@agavitalis/setting-up-a-nodejs-express-application-with-babel-642fe0dd45a5
+- .env: file contains variables connect to database
+- MVC(model view controller): 
+- view engine:
+- static files: allow express access to 'name' folder 
+- 
