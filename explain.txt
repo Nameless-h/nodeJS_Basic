@@ -5,4 +5,5 @@ Link to setup babel: https://medium.com/@agavitalis/setting-up-a-nodejs-express-
 - MVC(model view controller): 
 - view engine:
 - static files: allow express access to 'name' folder 
-- 
+- ejs(file): support code (if else , for ,while ....)
+- request URL : link website
