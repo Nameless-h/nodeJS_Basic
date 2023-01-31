@@ -16,11 +16,35 @@
     </div>
     <div >
     
+      <div class="create-user-container submit-form-container">
+        <form action="/create-new-user" method="POST">
+          <div>Create new user:</div>
+          <div>
+            <label for="">First name:</label>
+            <input type="text" name="firstName" id="">
+          </div>
+          <div>
+            <label for="">Last name:</label>
+            <input type="text" name="lastName" id="">
+          </div>
+          <div>
+            <label for="">Email:</label>
+            <input type="email" name="email" id="">
+          </div>
+          <div>
+            <label for="">Address:</label>
+            <input type="text" name="address" id="">
+          </div>
+          <div>
+            <button type="submit" class="btn-submit">Submit</button>
+          </div>
+        </form>
+      </div>  
+
     <div class="w3-container">
-        <h2>List users Table</h2>
-      
         <table class="w3-table-all w3-hoverable">
           <thead>
+            <tr><h2>LIST USERS TABLE</h2></tr>
             <tr class="w3-light-grey">
                <th>ID</th> 
               <th>First Name</th>
@@ -34,10 +58,19 @@
                   <td><%= dataUser[i].id %></td>
                   <td><%= dataUser[i].firstName %></td>
                   <td><%= dataUser[i].lastName %></td>
-                  <td>
-                    <a href="detail/user/<%= dataUser[i].id %>" target="_blank">Detail</a> 
-                    <button ><a href="detail/user/" target="_blank"></a> Edit</button>
-                    <button ><a href="detail/user/" target="_blank"></a> Delete</button>
+                  <td> 
+                    <form action="/detail-user/<%= dataUser[i].id %>" method="get">
+                      <button type="submit">Detail</button>
+                    </form>
+
+                    <form action="/edit-user/<%= dataUser[i].id %>" method="get">
+                      <button type="submit">Edit</button>
+                    </form>
+
+                    <form action="/delete-user" method="post">
+                      <input type="text" hidden value="<%= dataUser[i].id %>" name="userId">
+                      <button type="submit" >Delete</button>
+                    </form>
                   </td>  
                 </tr>
              <% } %>             
@@ -46,31 +79,9 @@
          
         </table>
       </div>
-    <div class="create-user-container">
-      <form action="/create-new-user" method="POST">
-        <div>Create new user:</div>
-        <div>
-          <label for="">First name:</label>
-          <input type="text" name="firstName" id="">
-        </div>
-        <div>
-          <label for="">Last name:</label>
-          <input type="text" name="lastName" id="">
-        </div>
-        <div>
-          <label for="">Email:</label>
-          <input type="email" name="email" id="">
-        </div>
-        <div>
-          <label for="">Address:</label>
-          <input type="text" name="address" id="">
-        </div>
-        <div>
-          <button type="submit" class="btn-submit">Submit</button>
-        </div>
-      </form>
-    </div>  
 
-    </div>
+    
+
+  </div>
 </body>
 </html>

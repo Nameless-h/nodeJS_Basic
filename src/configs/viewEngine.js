@@ -1,4 +1,4 @@
-import  express from "express";
+import express from "express";
 
 const configViewEngine =(app)=> {
     app.use(express.static('./src/public')),//allow express access to 'public' folder

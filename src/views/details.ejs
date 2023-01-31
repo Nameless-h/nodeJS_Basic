@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details user</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="details-user-contain submit-form-container">
+        <form >
+            <div>Details user:</div>
+            <div>
+              <label for="">First name:</label>
+              <input type="text" name="firstName" disabled value="<%= dataUser.firstName %>">
+            </div>
+            <div>
+              <label for="">Last name:</label>
+              <input type="text" name="lastName" disabled value="<%= dataUser.lastName %>">
+            </div>
+            <div>
+              <label for="">Email:</label>
+              <input type="email" name="email" disabled value="<%= dataUser.email %>">
+            </div>
+            <div>
+              <label for="">Address:</label>
+              <input type="text" name="address" disabled value="<%= dataUser.address %>">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

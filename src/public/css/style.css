@@ -4,6 +4,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button{
+  cursor: pointer;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -28,28 +32,55 @@ body {
   color: white;
 }
 
-.create-user-container {
+.w3-container {
+  margin: 30px 0;
+}
+
+.w3-container h2{
+  font-size: 20px!important;
+  font-weight: 700;
+  text-align: center;
+
+  color: #04AA6D;
+}
+
+.w3-table-all td,
+.w3-table-all th{
+  text-align: center!important;
+}
+.w3-table-all tbody tr td:last-child{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.w3-table-all tbody button {
+  padding: 5px;
+}
+
+.submit-form-container {
   border: 1px solid;
   margin: 20px auto 0;
   width: 300px;
   padding: 15px;
 }
 
-.create-user-container div:first-child {
+.submit-form-container div:first-child {
   text-align: center;
   font-size: 17px;
   font-weight: 600;
 }
 
-.create-user-container label {
+.submit-form-container label {
   display: block;
   margin-top: 10px;
+  font-weight: 600;
 }
-.create-user-container input {
+.submit-form-container input {
   width: 100%;
 }
 
-.create-user-container button {
+.submit-form-container button {
   width: 100%;
   margin-top: 20px;
   cursor: pointer;
