@@ -57,12 +57,8 @@ const storage = multer.diskStorage({
     }
 });
 
-
-// 'profile_pic' is the name of our file input field in the HTML form
-const upload = multer().single('profile_pic');
-
 let handleUploadFile = async(req,res)=> {
-     upload(req, res, function(err) {
+    try {
         // req.file contains information of uploaded file
         // req.body contains information of text fields, if there were any
 
@@ -72,13 +68,7 @@ let handleUploadFile = async(req,res)=> {
         else if (!req.file) {
             return res.send('Please select an image to upload');
         }
-        else if (err instanceof multer.MulterError) {
-            return res.send(err);
-        }
-        else if (err) {
-            return res.send(err);
-        }
-
+      
         // Display uploaded image for user validation
         res.send(`  <div style="text-align:center;color:green;width:100%">
                     <a href="/upload" style="color:green;text-transform:uppercase;text-decoration:none;font-weight:600;font-size:17px">Upload another image</a>
@@ -88,10 +78,42 @@ let handleUploadFile = async(req,res)=> {
                     <img src="/image/${req.file.filename}" width="80%" style="object-fit:cover;max-height:650px;"><hr/>
                     </div>
                     `);
-    });
+    } catch (error) {
+        res.send(error);
+    }
+        
+    
 }
 
+let handleUploadMultipleFiles = async (req,res)=> {
+    // req.file contains information of uploaded file
+    // req.body contains information of text fields, if there were any
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.files) {
+        return res.send('Please select an image to upload');
+    }
+
+    // Display uploaded image for user validation
+    let result = `<div style="text-align:center;color:green;width:100%">
+                <a href="/upload" style="color:green;text-transform:uppercase;text-decoration:none;font-weight:600;font-size:17px">Upload more images</a>
+                </div>
+                <hr />`
+    const files = req.files;
+    let index, len;
+    // Loop through all the uploaded images and display them on frontend
+    result += `<div style="display:flex;flex-wrap: wrap;width:100%;">`;
+    for (index = 0, len = files.length; index < len; ++index) {
+        result += `
+                    <img src="/image/${files[index].filename}" style="margin-left:20px;width:calc(33% - 20px);object-fit:cover;">
+                    `;
+    }
+    result += `</div>`;
+    res.send(result);
+
+}
 
 module.exports = {//export for other files can use
-    getHomepage ,getDetailPage,createNewUser,deleteUser,getEditPage,postUpdateUser,getUploadFilePage,handleUploadFile
+    getHomepage ,getDetailPage,createNewUser,deleteUser,getEditPage,postUpdateUser,getUploadFilePage,handleUploadFile,handleUploadMultipleFiles
 }
